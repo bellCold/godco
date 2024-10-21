@@ -1,7 +1,7 @@
 package org.godco.application.port.`in`
 
-import org.godco.application.port.JoinMemberCommend
+import org.godco.application.port.JoinMemberCommand
 
 interface JoinMemberUseCase {
-    fun join(joinMemberCommend: JoinMemberCommend)
+    fun join(joinMemberCommand: JoinMemberCommand)
 }
