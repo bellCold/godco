@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GodkoApplication
+class GodCoApplication
 
 fun main(args: Array<String>) {
-    runApplication<GodkoApplication>(*args)
+    runApplication<GodCoApplication>(*args)
 }
