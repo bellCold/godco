@@ -6,4 +6,7 @@ class Member(
     val email: String,
     val password: String
 ) {
+    fun isCorrectPassword(password: String): Boolean {
+        return this.password == password
+    }
 }

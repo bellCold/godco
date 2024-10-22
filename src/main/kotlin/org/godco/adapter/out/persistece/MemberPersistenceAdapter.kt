@@ -11,4 +11,8 @@ class MemberPersistenceAdapter(private val memberJpaRepository: MemberJpaReposit
     override fun save(member: Member): Member {
         return memberJpaRepository.save(MemberEntity.of(member)).toDomain()
     }
+
+    override fun findByEmail(email: String): Member? {
+          return memberJpaRepository.findByEmail(email)?.toDomain()
+    }
 }
