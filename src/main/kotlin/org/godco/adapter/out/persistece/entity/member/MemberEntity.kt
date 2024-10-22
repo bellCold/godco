@@ -10,13 +10,15 @@ class MemberEntity(
     val id: Long,
     val name: String,
     val email: String,
+    val password: String
 ) {
     companion object {
         fun of(member: Member): MemberEntity {
             return MemberEntity(
                 id = member.id,
                 name = member.name,
-                email = member.email
+                email = member.email,
+                password = member.password
             )
         }
     }
@@ -25,7 +27,8 @@ class MemberEntity(
         return Member(
             id = this.id,
             name = this.name,
-            email = this.email
+            email = this.email,
+            password = this.password
         )
     }
 }

@@ -11,7 +11,8 @@ class JoinMemberService(private val memberPersistencePort: MemberPersistencePort
     override fun join(joinMemberCommand: JoinMemberCommand) {
         val member = Member(
             name = joinMemberCommand.name,
-            email = joinMemberCommand.email
+            email = joinMemberCommand.email,
+            password = joinMemberCommand.password
         )
 
         memberPersistencePort.save(member)
