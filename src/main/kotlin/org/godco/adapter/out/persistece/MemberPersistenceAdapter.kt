@@ -13,6 +13,10 @@ class MemberPersistenceAdapter(private val memberJpaRepository: MemberJpaReposit
     }
 
     override fun findByEmail(email: String): Member? {
-          return memberJpaRepository.findByEmail(email)?.toDomain()
+        return memberJpaRepository.findByEmail(email)?.toDomain()
+    }
+
+    override fun existEmail(email: String): Boolean {
+        return memberJpaRepository.existsByEmail(email)
     }
 }

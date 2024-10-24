@@ -18,7 +18,7 @@ class MemberController(
     private val loginUseCase: LoginUseCase
 ) {
 
-    @PostMapping
+    @PostMapping("/join")
     fun join(@Valid @RequestBody joinMemberRequestDto: JoinMemberRequestDto) {
         joinMemberUseCase.join(joinMemberRequestDto.toCommand())
     }

@@ -6,4 +6,6 @@ interface MemberPersistencePort {
     fun save(member: Member): Member
 
     fun findByEmail(email: String): Member?
+
+    fun existEmail(email: String): Boolean
 }
