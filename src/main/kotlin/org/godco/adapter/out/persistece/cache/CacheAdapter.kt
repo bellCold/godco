@@ -1,6 +1,6 @@
 package org.godco.adapter.out.persistece.cache
 
-import org.godco.application.port.CachePort
+import org.godco.application.port.out.CachePort
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Repository
 import java.util.concurrent.TimeUnit

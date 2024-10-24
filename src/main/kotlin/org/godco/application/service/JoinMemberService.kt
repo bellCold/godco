@@ -22,7 +22,8 @@ class JoinMemberService(
             val member = Member(
                 name = joinMemberCommand.name,
                 email = joinMemberCommand.email,
-                password = joinMemberCommand.password
+                password = joinMemberCommand.password,
+                phoneNumber = joinMemberCommand.phoneNumber
             )
 
             memberPersistencePort.save(member)

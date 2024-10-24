@@ -1,3 +1,5 @@
 package org.godco.adapter.`in`.web.member.response
 
-data class LoginResponseDto(val id: Long)
+import org.godco.domain.member.Token
+
+data class LoginResponseDto(val token: Token)

@@ -32,6 +32,10 @@ dependencies {
 
     implementation("redis.clients:jedis:4.2.3")
 
+    implementation("io.jsonwebtoken:jjwt-api:0.12.6")
+    implementation("io.jsonwebtoken:jjwt-impl:0.12.6")
+    implementation("io.jsonwebtoken:jjwt-jackson:0.12.6")
+
     implementation("it.ozimov:embedded-redis:0.7.3") {
         exclude(group = "org.slf4j")
         exclude(group = "commons-logging", module = "commons-logging")

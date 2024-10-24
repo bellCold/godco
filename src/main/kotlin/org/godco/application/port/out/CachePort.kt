@@ -1,4 +1,4 @@
-package org.godco.application.port
+package org.godco.application.port.out
 
 import java.util.concurrent.TimeUnit
 

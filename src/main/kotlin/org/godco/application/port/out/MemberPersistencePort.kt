@@ -8,4 +8,6 @@ interface MemberPersistencePort {
     fun findByEmail(email: String): Member?
 
     fun existEmail(email: String): Boolean
+
+    fun findById(id: Long): Member?
 }

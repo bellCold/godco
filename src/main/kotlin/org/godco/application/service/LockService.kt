@@ -1,6 +1,6 @@
 package org.godco.application.service
 
-import org.godco.application.port.CachePort
+import org.godco.application.port.out.CachePort
 import org.springframework.stereotype.Service
 import java.util.concurrent.TimeUnit
 
