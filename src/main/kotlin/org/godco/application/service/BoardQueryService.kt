@@ -1,6 +1,6 @@
 package org.godco.application.service
 
-import org.godco.application.FindBoardCommand
+import org.godco.application.port.FindBoardCommand
 import org.godco.application.port.DeleteBoardCommand
 import org.godco.application.port.`in`.BoardQueryUseCase
 import org.godco.application.port.out.BoardPersistencePort

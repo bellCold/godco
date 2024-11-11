@@ -1,6 +1,6 @@
 package org.godco.application.port.`in`
 
-import org.godco.application.FindBoardCommand
+import org.godco.application.port.FindBoardCommand
 import org.godco.application.port.DeleteBoardCommand
 import org.godco.domain.board.Board
 

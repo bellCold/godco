@@ -1,6 +1,6 @@
 package org.godco.application.service
 
-import org.godco.application.PostBoardCommand
+import org.godco.application.port.PostBoardCommand
 import org.godco.application.port.`in`.PostBoardUseCase
 import org.godco.application.port.out.BoardPersistencePort
 import org.godco.domain.board.Board

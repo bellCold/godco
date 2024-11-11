@@ -4,7 +4,7 @@ import org.godco.adapter.`in`.web.board.requset.PostBoardRequestDto
 import org.godco.adapter.`in`.web.board.response.BoardResponseDto
 import org.godco.adapter.`in`.web.board.response.BoardsResponseDto
 import org.godco.adapter.`in`.web.board.response.PostBoardResponseDto
-import org.godco.application.FindBoardCommand
+import org.godco.application.port.FindBoardCommand
 import org.godco.application.port.DeleteBoardCommand
 import org.godco.application.port.`in`.BoardQueryUseCase
 import org.godco.application.port.`in`.PostBoardUseCase
