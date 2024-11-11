@@ -1,12 +1,13 @@
 package org.godco.adapter.out.persistece.entity.member
 
 import jakarta.persistence.*
+import org.godco.adapter.out.persistece.entity.BaseTimeEntity
 import org.godco.domain.member.Member
 import org.godco.domain.member.MemberStatus
 
 @Entity
 @Table(name = "member")
-class MemberEntity(
+class MemberTimeEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     val name: String,
@@ -15,10 +16,10 @@ class MemberEntity(
     val phoneNumber: String,
     @Enumerated(EnumType.STRING)
     val status: MemberStatus
-) {
+) : BaseTimeEntity() {
     companion object {
-        fun of(member: Member): MemberEntity {
-            return MemberEntity(
+        fun of(member: Member): MemberTimeEntity {
+            return MemberTimeEntity(
                 id = member.id,
                 name = member.name,
                 email = member.email,

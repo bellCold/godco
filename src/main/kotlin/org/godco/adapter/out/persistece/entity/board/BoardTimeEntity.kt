@@ -4,25 +4,30 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import org.godco.adapter.out.persistece.entity.BaseTimeEntity
 import org.godco.domain.board.Board
 
 @Entity
-class BoardEntity(
+class BoardTimeEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val title: String,
     val content: String
-) {
-    fun toDomain() :Board {
-        return Board(id, title, content)
-    }
-
+) : BaseTimeEntity() {
     companion object {
-        fun of(board: Board): BoardEntity {
-            return BoardEntity(
+        fun of(board: Board): BoardTimeEntity {
+            return BoardTimeEntity(
                 title = board.title,
                 content = board.content
             )
         }
+    }
+
+    fun toDomain(): Board {
+        return Board(
+            id = this.id,
+            title = this.title,
+            content = this.content
+        )
     }
 }
