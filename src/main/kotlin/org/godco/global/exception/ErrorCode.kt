@@ -11,5 +11,6 @@ enum class ErrorCode(val httpStatusCode: HttpStatusCode, val message: String) {
     NOT_EXIST_TOKEN(HttpStatus.BAD_REQUEST, "Not Existing Token"),
     EXPIRED_TOKEN(HttpStatus.FORBIDDEN, "Expired Token"),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "Unauthorized"),
+    NOT_EXIST_BOARD(HttpStatus.NOT_FOUND, "Not Existing Board"),
     ;
 }

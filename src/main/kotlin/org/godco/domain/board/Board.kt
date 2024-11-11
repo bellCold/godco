@@ -4,6 +4,10 @@ class Board(
     val id: Long = 0,
     val title: String,
     val content: String,
-    val isDeleted: Boolean = false
+    var isDeleted: Boolean = false
 ) {
+    fun delete(): Board {
+        this.isDeleted = true
+        return this
+    }
 }
