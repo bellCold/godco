@@ -15,11 +15,10 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
 
 @Component
-class LoginMemberArgumentResolver(private val memberPersistencePort: MemberPersistencePort) :
-    HandlerMethodArgumentResolver {
+class LoginMemberArgumentResolver(private val memberPersistencePort: MemberPersistencePort) : HandlerMethodArgumentResolver {
 
     companion object {
-        const val TOKEN_HEADER = "x-godco-token"
+        private const val TOKEN_HEADER = "x-godco-token"
     }
 
     override fun supportsParameter(parameter: MethodParameter): Boolean {

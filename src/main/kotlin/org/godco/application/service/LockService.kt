@@ -29,7 +29,7 @@ class LockService(private val cachePort: CachePort) {
         }
     }
 
-    fun lock(key: String, lockTimeoutSeconds: Long) {
+    private fun lock(key: String, lockTimeoutSeconds: Long) {
         val lockKey = createLockKey(key)
         val acquiredLock = cachePort.put(lockKey to "LOCKED", lockTimeoutSeconds, TimeUnit.SECONDS)
 
@@ -38,7 +38,7 @@ class LockService(private val cachePort: CachePort) {
         }
     }
 
-    fun unLock(key: String) {
+    private fun unLock(key: String) {
         val lockKey = createLockKey(key)
 
         cachePort.delete(lockKey)
