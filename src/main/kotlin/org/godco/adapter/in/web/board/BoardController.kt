@@ -4,6 +4,8 @@ import org.godco.adapter.`in`.web.board.requset.PostBoardRequestDto
 import org.godco.adapter.`in`.web.board.response.BoardResponseDto
 import org.godco.adapter.`in`.web.board.response.BoardsResponseDto
 import org.godco.adapter.`in`.web.board.response.PostBoardResponseDto
+import org.godco.adapter.`in`.web.member.LoginMember
+import org.godco.adapter.`in`.web.member.LoginMemberInfo
 import org.godco.application.port.FindBoardCommand
 import org.godco.application.port.DeleteBoardCommand
 import org.godco.application.port.`in`.BoardQueryUseCase
@@ -17,8 +19,8 @@ class BoardController(
     private val boardQueryUseCase: BoardQueryUseCase
 ) {
     @PostMapping
-    fun post(@RequestBody postBoardRequestDto: PostBoardRequestDto): PostBoardResponseDto {
-        val board = postBoardUseCase.post(postBoardRequestDto.toCommand())
+    fun post(@LoginMember loginMemberInfo: LoginMemberInfo, @RequestBody postBoardRequestDto: PostBoardRequestDto): PostBoardResponseDto {
+        val board = postBoardUseCase.post(postBoardRequestDto.toCommand(loginMemberInfo.memberId))
 
         return PostBoardResponseDto(board.id)
     }
@@ -30,9 +32,9 @@ class BoardController(
         return BoardsResponseDto.from(boards)
     }
 
-    @GetMapping("/{id}")
-    fun findById(@PathVariable id: Long): BoardResponseDto {
-        val board = boardQueryUseCase.findById(FindBoardCommand(id = id))
+    @GetMapping("/{boardId}")
+    fun findById(@PathVariable boardId: Long): BoardResponseDto {
+        val board = boardQueryUseCase.findById(FindBoardCommand(boardId = boardId))
 
         return BoardResponseDto(
             id = board.id,
@@ -41,8 +43,8 @@ class BoardController(
         )
     }
 
-    @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: Long) {
-        boardQueryUseCase.delete(DeleteBoardCommand(id))
+    @DeleteMapping("/{boardId}")
+    fun delete(@LoginMember loginMemberInfo: LoginMemberInfo, @PathVariable boardId: Long) {
+        boardQueryUseCase.delete(DeleteBoardCommand(loginMemberInfo.memberId, boardId))
     }
 }

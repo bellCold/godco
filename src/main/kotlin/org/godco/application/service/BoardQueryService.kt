@@ -1,7 +1,7 @@
 package org.godco.application.service
 
-import org.godco.application.port.FindBoardCommand
 import org.godco.application.port.DeleteBoardCommand
+import org.godco.application.port.FindBoardCommand
 import org.godco.application.port.`in`.BoardQueryUseCase
 import org.godco.application.port.out.BoardPersistencePort
 import org.godco.domain.board.Board
@@ -16,11 +16,15 @@ class BoardQueryService(private val boardPersistencePort: BoardPersistencePort) 
     }
 
     override fun findById(findBoardCommand: FindBoardCommand): Board {
-        return boardPersistencePort.findById(findBoardCommand.id) ?: throw GodCoException(ErrorCode.NOT_EXIST_BOARD)
+        return boardPersistencePort.findById(findBoardCommand.boardId) ?: throw GodCoException(ErrorCode.NOT_EXIST_BOARD)
     }
 
     override fun delete(deleteBoardCommand: DeleteBoardCommand) {
-        val board = boardPersistencePort.findById(deleteBoardCommand.id)?.delete() ?: throw GodCoException(ErrorCode.NOT_EXIST_BOARD)
+        val board = boardPersistencePort.findById(deleteBoardCommand.boardId)?.delete() ?: throw GodCoException(ErrorCode.NOT_EXIST_BOARD)
+
+        if (board.memberId == deleteBoardCommand.memberId) {
+            board.delete()
+        }
 
         boardPersistencePort.save(board)
     }

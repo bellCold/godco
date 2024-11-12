@@ -11,6 +11,7 @@ class PostBoardService(private val boardPersistencePort: BoardPersistencePort) :
 
     override fun post(postBoardCommand: PostBoardCommand): Board {
         val board = Board(
+            memberId = postBoardCommand.memberId,
             title = postBoardCommand.title,
             content = postBoardCommand.content,
         )

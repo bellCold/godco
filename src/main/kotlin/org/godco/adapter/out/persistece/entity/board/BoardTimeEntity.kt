@@ -11,6 +11,7 @@ import org.godco.domain.board.Board
 class BoardTimeEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
+    val memberId: Long,
     val title: String,
     val content: String
 ) : BaseTimeEntity() {
@@ -18,7 +19,8 @@ class BoardTimeEntity(
         fun of(board: Board): BoardTimeEntity {
             return BoardTimeEntity(
                 title = board.title,
-                content = board.content
+                content = board.content,
+                memberId = board.memberId
             )
         }
     }
@@ -27,7 +29,8 @@ class BoardTimeEntity(
         return Board(
             id = this.id,
             title = this.title,
-            content = this.content
+            content = this.content,
+            memberId = this.memberId
         )
     }
 }

@@ -1,3 +1,3 @@
 package org.godco.application.port
 
-class DeleteBoardCommand(val id: Long)
+class DeleteBoardCommand(val memberId: Long, val boardId: Long)

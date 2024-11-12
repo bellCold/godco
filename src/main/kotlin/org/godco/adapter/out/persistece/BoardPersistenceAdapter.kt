@@ -16,13 +16,14 @@ class BoardPersistenceAdapter(private val boardJpaRepository: BoardJpaRepository
     override fun findAll(): List<Board>? {
         return boardJpaRepository.findAll().map {
             Board(
+                memberId = it.memberId,
                 title = it.title,
                 content = it.content,
             )
         }.toList()
     }
 
-    override fun findById(id: Long): Board? {
-        return boardJpaRepository.findByIdOrNull(id)?.toDomain()
+    override fun findById(boardId: Long): Board? {
+        return boardJpaRepository.findByIdOrNull(boardId)?.toDomain()
     }
 }
